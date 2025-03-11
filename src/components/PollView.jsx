@@ -14,7 +14,7 @@ export default function PollView() {
     const fetchPoll = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3000/api/polls/${id}`
+          `${import.meta.env.VITE_API}/polls/${id}`
         );
         setPoll(data);
         calculateTimeLeft(data.expiresAt);
@@ -51,7 +51,7 @@ export default function PollView() {
     if (selectedOption === null || hasVoted) return;
 
     try {
-      await axios.post(`http://localhost:3000/api/polls/${id}/vote`, {
+      await axios.post(`${import.meta.env.VITE_API}/polls/${id}/vote`, {
         optionIndex: selectedOption,
       });
 
@@ -67,7 +67,7 @@ export default function PollView() {
 
   const handleReaction = async (type) => {
     try {
-      await axios.patch(`http://localhost:3000/api/polls/${id}/reaction`, {
+      await axios.patch(`${import.meta.env.VITE_API}/polls/${id}/reaction`, {
         type,
       });
       setPoll((prev) => ({

@@ -10,7 +10,7 @@ export default function CreatePoll() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await axios.post("http://localhost:3000/api/polls", {
+    const { data } = await axios.post(`${import.meta.env.VITE_API}/polls`, {
       question,
       options,
       expiresIn,
