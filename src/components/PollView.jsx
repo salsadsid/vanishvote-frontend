@@ -100,14 +100,14 @@ export default function PollView() {
 
       <div className="space-y-4 mb-8">
         {poll.options.map((option, index) => (
-          <div key={index} className="border rounded-lg p-4">
+          <div key={index} className="border rounded-lg p-3">
             <button
               onClick={() => !hasVoted && setSelectedOption(index)}
               className={`w-full text-left ${
                 !hasVoted ? "hover:bg-gray-50" : ""
               } 
                 ${
-                  selectedOption === index ? "bg-blue-50 border-blue-300" : ""
+                  selectedOption === index ? "bg-blue-100 border-blue-300" : ""
                 }`}
               disabled={hasVoted}
             >
